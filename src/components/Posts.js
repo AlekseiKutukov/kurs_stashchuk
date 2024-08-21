@@ -3,21 +3,37 @@ import Post from './Post';
 
 function Posts() {
   const [posts, setPost] = useState([]);
-  const [error, steError] = useState('');
+  const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true); //
   const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
+  //тоже самое что и ниже
   useEffect(() => {
-    fetch(API_URL)
-      .then((res) => res.json())
-      .then((posts) => {
-        //console.log(posts);
+    async function fetchData() {
+      try {
+        const res = await fetch(API_URL);
+        const posts = await res.json();
         setPost(posts);
-      })
-      //.catch((error) => console.log(error.message));
-      .catch((error) => steError(error.message))
-      .finally(() => setIsLoading(false)); //выполняется независмо будет ошибка или нет
+        console.log(posts);
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    }
+    fetchData();
   }, []);
+
+  // useEffect(() => {
+  //   fetch(API_URL)
+  //     .then((res) => res.json())
+  //     .then((posts) => {
+  //       //console.log(posts);
+  //       setPost(posts);
+  //     })
+  //     //.catch((error) => console.log(error.message));
+  //     .catch((error) => setError(error.message))
+  //     .finally(() => setIsLoading(false)); //выполняется независмо будет ошибка или нет
+  // }, []);
 
   if (error) {
     return <h1>Error: {error}</h1>;

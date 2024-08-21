@@ -1,3 +1,5 @@
+import style from './Login.module.css';
+
 const Login = () => {
   const handleForSubmint = (event) => {
     event.preventDefault(); //убирает перезагрузку странице при клике кнопки
@@ -11,7 +13,7 @@ const Login = () => {
   };
   return (
     //некотролируемые поля
-    <>
+    <div className={style.obertka}>
       __________________________
       <h1>Login form no control pole</h1>
       <form onSubmit={handleForSubmint}>
@@ -26,7 +28,7 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       ____________________________
-    </>
+    </div>
   );
 };
 

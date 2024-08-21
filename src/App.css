@@ -1,2 +1,16 @@
 .App {
 }
+
+.active {
+  color: lightyellow;
+  text-decoration: none;
+}
+
+nav {
+  background-color: darkslategray;
+  padding: 5px;
+}
+
+nav a {
+  margin: 15px;
+}
