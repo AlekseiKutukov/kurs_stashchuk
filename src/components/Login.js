@@ -8,7 +8,7 @@ const Login = () => {
       username: event.target.username.value,
       password: event.target.password.value,
     };
-    console.log(userData);
+    // console.log(userData);
     alert(JSON.stringify(userData)); //потому-что алерт не показывает объекты
   };
   return (

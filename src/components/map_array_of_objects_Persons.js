@@ -2,7 +2,7 @@ import Person from './map_array_of_objects_Person';
 import persons from '../data/persons';
 
 function Persons() {
-  return persons.slice(0, 6).map((person) => {
+  return persons.slice(0, 12).map((person) => {
     //   const { id, firstName, lastName, email, img } = person; //деструктуризация
     return (
       <Person

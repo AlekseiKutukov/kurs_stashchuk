@@ -11,7 +11,7 @@ const LoginControl = () => {
       username: username,
       password: password,
     };
-    console.log(userData);
+    // console.log(userData);
     alert(JSON.stringify(userData)); //потому-что алерт не показывает объекты
   };
 

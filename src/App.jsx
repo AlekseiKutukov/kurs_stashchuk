@@ -17,6 +17,8 @@ import About from './reactRouter/About';
 import NotFound from './reactRouter/NotFound';
 import Contacts from './reactRouter/Contacts';
 import MainLayout from './reactRouter/layouts/MainLayout';
+import Courses from './reactRouter/Courses';
+import Course from './reactRouter/Course';
 
 const texts = ['Click me 1', 'Click me 2', 'Click me 3', 'Click me 4'];
 
@@ -29,8 +31,8 @@ function App() {
       .then((json) => setTodo(json));
   }, []);
 
-  console.log('App render');
-  console.log(todo);
+  // console.log('App render');
+  // console.log(todo);
 
   const [count, setCount] = useState(0);
   const incrementCount = () => {
@@ -49,13 +51,24 @@ function App() {
             {/* показывает этот компонет, для пути path="/" */}
             <Route index={true} element={<Home />} />
             <Route path="/" element={<Home />}></Route>
+            <Route path="posts-api" element={<Posts />} />
+            <Route
+              path="map-persons"
+              element={
+                <div className="person_all">
+                  <Persons />
+                </div>
+              }
+            />
             <Route path="about" element={<About />} />
             <Route path="contacts" element={<Contacts />} />
+            <Route path="courses" element={<Courses />} />
+            <Route path="courses/:corseSlug" element={<Course />} />
             {/* маршрут по умолчанию (все не существующие страницы)*/}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
-        <Posts />
+
         {todo && todo.title}
         <Wrapper color="lightblue">
           <h2>Text inside of the Wrapper</h2>
@@ -85,9 +98,6 @@ function App() {
       <MyUseStateProps_Button onClick={incrementCount} text={'Click me 3'} /> 
       <MyUseStateProps_Button onClick={incrementCount} text={'Click me 4'} /> */}
         <ResetButton count={count} func={resetCount} />
-        <div className="person_all">
-          <Persons />
-        </div>
       </div>
     </BrowserRouter>
   );

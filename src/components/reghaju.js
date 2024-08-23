@@ -6,7 +6,7 @@ const InputField = () => {
     name: name,
     age: age,
   };
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <div className="input__name_age">

@@ -14,7 +14,7 @@ function Posts() {
         const res = await fetch(API_URL);
         const posts = await res.json();
         setPost(posts);
-        console.log(posts);
+        // console.log(posts);
       } catch (error) {
         setError(error.message);
       }
