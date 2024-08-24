@@ -19,6 +19,8 @@ import Contacts from './reactRouter/Contacts';
 import MainLayout from './reactRouter/layouts/MainLayout';
 import Courses from './reactRouter/Courses';
 import Course from './reactRouter/Course';
+import User from './apicontext/components/User';
+import UserContext from './context/UserContext';
 
 const texts = ['Click me 1', 'Click me 2', 'Click me 3', 'Click me 4'];
 
@@ -42,6 +44,8 @@ function App() {
   const resetCount = () => {
     setCount(0);
   };
+
+  const [user, setUser] = useState('Bogdan');
 
   return (
     <BrowserRouter>
@@ -68,6 +72,11 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
+
+        {/* передаем value={ user } в провайдер, чтобы потом получить значение */}
+        <UserContext.Provider value={user}>
+          <User />
+        </UserContext.Provider>
 
         {todo && todo.title}
         <Wrapper color="lightblue">
