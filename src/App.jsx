@@ -21,6 +21,7 @@ import Courses from './reactRouter/Courses';
 import Course from './reactRouter/Course';
 import User from './apicontext/components/User';
 import UserContext from './context/UserContext';
+import ChangeUser from './apicontext/components/ChangeUser';
 
 const texts = ['Click me 1', 'Click me 2', 'Click me 3', 'Click me 4'];
 
@@ -74,8 +75,9 @@ function App() {
         </Routes>
 
         {/* передаем value={ user } в провайдер, чтобы потом получить значение */}
-        <UserContext.Provider value={user}>
+        <UserContext.Provider value={{ user: user, setUser: setUser }}>
           <User />
+          <ChangeUser />
         </UserContext.Provider>
 
         {todo && todo.title}
